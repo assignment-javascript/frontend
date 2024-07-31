@@ -23,3 +23,16 @@ export async function monthlyViewRequest() {
         }
     }
 }
+
+export async function insertData(item) {
+    console.log("Inserting data:", item);
+    await fetch('http://localhost:8080/income', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(item)
+    });
+}
+
+
