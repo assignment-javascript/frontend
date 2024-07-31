@@ -7,6 +7,7 @@ export async function fetchData(url, options = {}) {
         return await response.json();
     } catch (error) {
         console.error('Failed to fetch data:', error);
+        alert('요청에 실패했습니다.')
         return null;
     }
 }

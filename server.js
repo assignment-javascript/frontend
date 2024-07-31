@@ -12,6 +12,11 @@ app.get('/', (req, res) => {
 });
 
 // /report 경로에서 report.html을 제공
+app.get('/view', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'monthlyView.html'));
+});
+
+// /report 경로에서 report.html을 제공
 app.get('/report', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'report.html'));
 });
