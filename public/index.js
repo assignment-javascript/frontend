@@ -1,8 +1,5 @@
-import { monthlyViewRequest } from "./fetch/fetches.js"
-import { createItem } from "./components/acountItem.js"
+import { monthlyViewRequest } from "./fetch/data.js"
+import { createList } from "./components/acountItem.js"
 
 const response = await monthlyViewRequest();
-console.log(response);
-response?.data?.items?.forEach(element => {
-    createItem();
-});
+createList(response?.data?.items);
