@@ -8,12 +8,17 @@
 		<link rel="stylesheet" href="/style/report.css" />
 	</head>
 	<body>
-		<h1>Report Page</h1>
+		<h1>&#x1F50D;Report Page</h1>
 		<nav>
 			<a href="/">Home</a>
 			<a href="/report">Report</a>
 			<a href="/enroll">enroll</a>
 		</nav>
-		<script type="module" src="/js/global.js"></script>
+
+		<label for="monthPicker">달을 선택하세요</label>
+		<input type="month" id="monthPicker" />
+		<div id="results-month"></div>
+		<div id="results-container"></div>
+		<script type="module" src="./report.js"></script>
 	</body>
 </html>
