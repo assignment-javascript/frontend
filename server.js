@@ -21,6 +21,11 @@ app.get('/report', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'report.html'));
 });
 
+// /enroll 경로에서 enroll.html을 제공
+app.get('/enroll', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'enroll.html'));
+});
+
 // 서버 시작
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
