@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Home Page</title>
-		<link rel="stylesheet" href="/style/global.css" />
-		<link rel="stylesheet" href="/style/index.css" />
-	</head>
-	<body>
-		<h1>Home Page</h1>
-
-		<nav>
-			<a href="/">Home</a>
-			<a href="/report">Report</a>
-			<a href="/enroll">enroll</a>
-		</nav>
-
-		<div id="results"></div>
-		<script type="module" src="index.js"></script>
-	</body>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Split View</title>
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .left, .right {
+            height: 100%;
+            border: none;
+        }
+        .left {
+            width: 75%;
+            background-color: #f0f0f0; /* Optional: background color for visibility */
+        }
+        .right {
+            width: 25%;
+            background-color: #ffffff; /* Optional: background color for visibility */
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="left">
+        <iframe src="monthlyView.html"></iframe>
+    </div>
+    <div class="right">
+        <iframe src="enroll.html"></iframe>
+    </div>
+</body>
 </html>

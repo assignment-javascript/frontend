@@ -8,42 +8,55 @@
     <link rel="stylesheet" href="/style/enroll.css" />
 </head>
 <body>
-    <h1>Enroll Page</h1>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/report">Report</a>
-        <a href="/enroll">Enroll</a>
-    </nav>
+    <header>
+        <h1>Enroll Page</h1>
+    </header>
 
-    <form id="enrollForm">
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date"><br>
+    <main>
+        <form id="enrollForm" class="enroll-form">
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" class="form-control">
+            </div>
 
-        <label for="bank">Bank:</label>
-        <input type="text" id="bank" name="bank"><br>
+            <div class="form-group">
+                <label for="bank">Bank:</label>
+                <input type="text" id="bank" name="bank" class="form-control">
+            </div>
 
-        <label for="category">Category:</label>
-        <input type="text" id="category" name="category"><br>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" class="form-control">
+            </div>
 
-        <label for="money">Money:</label>
-        <input type="number" id="money" name="money"><br>
+            <div class="form-group">
+                <label for="money">Money:</label>
+                <input type="number" id="money" name="money" class="form-control">
+            </div>
 
-        <label for="content">Content:</label>
-        <input type="text" id="content" name="content"><br>
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <input type="text" id="content" name="content" class="form-control">
+            </div>
 
-        <label for="memo">Memo:</label>
-        <input type="text" id="memo" name="memo"><br>
+            <div class="form-group">
+                <label for="memo">Memo:</label>
+                <input type="text" id="memo" name="memo" class="form-control">
+            </div>
 
-        <label for="ie">Income/Expense:</label>
-        <select id="ie" name="ie">
-            <option value="I">Income</option>
-            <option value="E">Expense</option>
-        </select><br>
+            <div class="form-group">
+                <label for="ie">Income/Expense:</label>
+                <select id="ie" name="ie" class="form-control">
+                    <option value="I">Income</option>
+                    <option value="E">Expense</option>
+                </select>
+            </div>
 
-        <button type="button" id="enrollSubmit">Submit</button>
-    </form>
+            <button type="button" id="enrollSubmit" class="btn-submit">Submit</button>
+        </form>
 
-    <div id="results"></div>
+        <div id="results" class="results"></div>
+    </main>
 
     <script type="module" src="/js/global.js"></script>
     <script type="module" src="./components/acountItem.js"></script>

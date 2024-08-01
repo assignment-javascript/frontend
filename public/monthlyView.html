@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>monthlyView</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monthly View</title>
 
-		<link rel="stylesheet" href="/style/global.css" />
-		<link rel="stylesheet" href="/style/monthlyView.css" />
-	</head>
-	<body>
-		<h1>monthlyView</h1>
+    <link rel="stylesheet" href="/style/global.css" />
+    <link rel="stylesheet" href="/style/monthlyView.css" />
+</head>
+<body>
+    <header>
+        <h1>내역</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/report">Report</a>
+        </nav>
+    </header>	
 
-		<nav>
-			<a href="/">Home</a>
-			<a href="/report">Report</a>
-		</nav>
+    <main>
+        <section class="filter-section">
+            <label for="monthPicker">Select Month:</label>
+            <input type="month" value="" id="monthPicker" />
+        </section>
 
-		<label for="monthPicker">달을 선택하세요</label>
-		<input type="month" id="monthPicker" />
+        <section class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="select-all" /></th>
+                        <th>날짜</th>
+                        <th>자산</th>
+                        <th>분류</th>
+                        <th>내용</th>
+                        <th>금액</th>
+                    </tr>
+                </thead>
+                <tbody id="results-tbody"></tbody>
+            </table>
+        </section>
+    </main>
 
-		<table>
-			<thead>
-				<tr>
-					<th><input type="checkbox" name="" id="" /></th>
-					<th>날짜</th>
-					<th>자산</th>
-					<th>분류</th>
-					<th>내용</th>
-					<th>금액</th>
-				</tr>
-			</thead>
-			<tbody id="results-tbody"></tbody>
-		</table>
-		<script type="module" src="monthlyView.js"></script>
-	</body>
+    <script type="module" src="monthlyView.js"></script>
+</body>
 </html>
