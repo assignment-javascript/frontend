@@ -3,20 +3,132 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Home Page</title>
+		<title>Split View</title>
 		<link rel="stylesheet" href="/style/global.css" />
-		<link rel="stylesheet" href="/style/index.css" />
+		<link rel="stylesheet" href="/style/monthlyView.css" />
+		<link rel="stylesheet" href="/style/enroll.css" />
+		<style>
+			body {
+				display: flex;
+				margin: 0;
+				height: 100vh;
+				overflow: hidden;
+			}
+			.left {
+				width: 75%;
+				background-color: #f0f0f0; /* Optional: background color for visibility */
+			}
+			.right {
+				width: 25%;
+				height: 100vh;
+				overflow-y: auto; /* Enable vertical scrolling */
+				background-color: #ffffff; /* Optional: background color for visibility */
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Home Page</h1>
+		<div class="left">
+			<header>
+				<h1>내역</h1>
+				<nav>
+					<a href="/">Home</a>
+					<a href="/report">Report</a>
+				</nav>
+			</header>
 
-		<nav>
-			<a href="/">Home</a>
-			<a href="/report">Report</a>
-			<a href="/enroll">enroll</a>
-		</nav>
+			<main>
+				<section class="filter-section">
+					<label for="monthPicker">Select Month:</label>
+					<input type="month" value="" id="monthPicker" />
+				</section>
 
-		<div id="results"></div>
-		<script type="module" src="index.js"></script>
+				<section class="table-section">
+					<table>
+						<thead>
+							<tr>
+								<th><input type="checkbox" id="select-all" /></th>
+								<th>날짜</th>
+								<th>자산</th>
+								<th>분류</th>
+								<th>내용</th>
+								<th>금액</th>
+							</tr>
+						</thead>
+						<tbody id="results-tbody"></tbody>
+					</table>
+				</section>
+			</main>
+		</div>
+		<div class="right">
+			<header>
+				<h1>Enroll Page</h1>
+			</header>
+			<main>
+				<form id="enrollForm" class="enroll-form">
+					<div class="form-group">
+						<label for="date">Date:</label>
+						<input type="date" id="date" name="date" class="form-control" />
+					</div>
+
+					<div class="form-group">
+						<label for="bank">Bank:</label>
+						<input type="text" id="bank" name="bank" class="form-control" />
+					</div>
+
+					<div class="form-group">
+						<label for="category">Category:</label>
+						<input
+							type="text"
+							id="category"
+							name="category"
+							class="form-control"
+						/>
+					</div>
+
+					<div class="form-group">
+						<label for="money">Money:</label>
+						<input
+							type="number"
+							id="money"
+							name="money"
+							class="form-control"
+						/>
+					</div>
+
+					<div class="form-group">
+						<label for="content">Content:</label>
+						<input
+							type="text"
+							id="content"
+							name="content"
+							class="form-control"
+						/>
+					</div>
+
+					<div class="form-group">
+						<label for="memo">Memo:</label>
+						<input type="text" id="memo" name="memo" class="form-control" />
+					</div>
+
+					<div class="form-group">
+						<label for="ie">Income/Expense:</label>
+						<select id="ie" name="ie" class="form-control">
+							<option value="I">Income</option>
+							<option value="E">Expense</option>
+						</select>
+					</div>
+
+					<button type="button" id="enrollSubmit" class="btn-submit">
+						Submit
+					</button>
+				</form>
+
+				<div id="results" class="results"></div>
+			</main>
+		</div>
+		<script type="module" src="./components/acountItem.js"></script>
+		<script type="module" src="./fetch/fetch.js"></script>
+		<script type="module" src="./enroll.js"></script>
+		<script type="module" src="monthlyView.js"></script>
 	</body>
 </html>
