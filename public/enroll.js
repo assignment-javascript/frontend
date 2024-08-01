@@ -1,10 +1,10 @@
 // enroll.js
-import { insertData } from "./fetch/fetches";
+import { insertData } from "./fetch/fetches.js"
 
 async function handleSubmit() {
     console.log("handleSubmit called"); // 디버깅 로그
 
-    const date = document.getElementById('date').value;
+    const dateInput = document.getElementById('date').value;
     const bank = document.getElementById('bank').value;
     const category = document.getElementById('category').value;
     const money = document.getElementById('money').value;
@@ -12,8 +12,10 @@ async function handleSubmit() {
     const memo = document.getElementById('memo').value;
     const ie = document.getElementById('ie').value;
 
+    const date = new Date(dateInput);
+    const formattedDate = date.toISOString().slice(0, 19).replace('T', ' ');
     const newItem = {
-        date: new Date(date).toISOString(),
+        date: formattedDate,
         bank: bank,
         category: category,
         money: parseFloat(money),

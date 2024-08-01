@@ -1,4 +1,4 @@
-import { domain } from "../static/domain";
+import { domain } from "../static/domain.js";
 export async function monthlyViewRequest() {
     return {
         message: "success",
