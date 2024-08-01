@@ -1,3 +1,4 @@
+import { domain } from "../static/domain";
 export async function monthlyViewRequest() {
     return {
         message: "success",
@@ -26,7 +27,7 @@ export async function monthlyViewRequest() {
 
 export async function insertData(item) {
     console.log("Inserting data:", item);
-    await fetch('http://localhost:8080/income', {
+    await fetch(domain+'/income', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
