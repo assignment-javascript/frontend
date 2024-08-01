@@ -3,7 +3,7 @@ import { monthlyViewRequest } from "./fetch/monthlyViewFetch.js";
 import { createList } from "./components/acountItem.js";
 
 async function handleSubmit() {
-    console.log("handleSubmit called"); 
+    console.log("handleSubmit called");
 
     const dateInput = document.getElementById('date').value;
     const bank = document.getElementById('bank').value;
@@ -32,12 +32,12 @@ async function handleSubmit() {
         const yearMonth = itemDate.toISOString().slice(0, 7); // 'YYYY-MM' 형식으로 변환
 
         // monthPicker의 값을 업데이트
-        const monthControl = document.querySelector('input[type="month"]');
-        monthControl.value = yearMonth;
+        const monthPicker = document.getElementById("monthPicker");
+        monthPicker.value = yearMonth;
 
-        // onChangeMonth 함수 호출하여 리스트 갱신
-        const event = { target: { value: yearMonth } }; // Mock event 객체
-        await onChangeMonth(event);
+        const event = new Event('change', { bubbles: true });
+        monthPicker.dispatchEvent(event);
+
     } catch (error) {
         console.error("Error occurred while submitting data:", error);
     }
