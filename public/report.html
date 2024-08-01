@@ -4,20 +4,26 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Report Page</title>
-		<link rel="stylesheet" href="/style/global.css" />
-		<link rel="stylesheet" href="/style/report.css" />
+		<link rel="stylesheet" href="./style/global.css" />
+		<link rel="stylesheet" href="./style/report.css" />
 	</head>
 	<body>
-		<h1>&#x1F50D;Report Page</h1>
-		<nav>
-			<a href="/">Home</a>
-			<a href="/report">Report</a>
-		</nav>
+		<header>
+			<h1>Report Page</h1>
+			<nav>
+				<a href="/">Home</a>
+				<a href="/report">Report</a>
+			</nav>
+		</header>
+		<main>
+			<section class="filter-section">
+				<label for="monthPicker">Select Month:</label>
+				<input type="month" value="" id="monthPicker" />
+			</section>
 
-		<label for="monthPicker">달을 선택하세요</label>
-		<input type="month" id="monthPicker" />
-		<div id="results-month"></div>
-		<div id="results-container"></div>
+			<div id="results-month"></div>
+			<div id="results-container"></div>
+		</main>
 		<script type="module" src="./report.js"></script>
 	</body>
 </html>

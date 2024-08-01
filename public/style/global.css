@@ -1,16 +1,65 @@
-/* global.css */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #f4f4f4;
-}
-
 /* 전체적인 페이지 스타일링 */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	margin: 0;
+	padding: 0;
+	background-color: #f4f4f4;
+}
+
+#home {
+	display: flex;
+	margin: 0;
+	height: 100vh;
+	overflow: hidden;
+}
+#home .left {
+	width: 75%;
+	height: 100vh;
+	overflow-y: auto; /* Enable vertical scrolling */
+	background-color: #f0f0f0; /* Optional: background color for visibility */
+}
+#home .right {
+	width: 25%;
+	height: 100vh;
+	overflow-y: auto; /* Enable vertical scrolling */
+	background-color: #ffffff; /* Optional: background color for visibility */
+}
+
+/* 헤더 스타일링 */
+header {
+	background: #333;
+	color: #fff;
+	padding: 1rem 0;
+	text-align: center;
+}
+
+header h1 {
+	margin: 0;
+	font-size: 1.5rem;
+}
+
+nav {
+	margin-top: 10px;
+}
+
+nav a {
+	color: #fff;
+	text-decoration: none;
+	margin: 0 1rem;
+	font-weight: bold;
+}
+
+nav a:hover {
+	text-decoration: underline;
+}
+
+/* 메인 콘텐츠 스타일링 */
+main {
+	max-width: 800px;
+	margin: 2rem auto;
+	padding: 1rem;
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

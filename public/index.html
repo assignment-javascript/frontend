@@ -4,29 +4,12 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Split View</title>
-		<link rel="stylesheet" href="/style/global.css" />
-		<link rel="stylesheet" href="/style/monthlyView.css" />
-		<link rel="stylesheet" href="/style/enroll.css" />
-		<style>
-			body {
-				display: flex;
-				margin: 0;
-				height: 100vh;
-				overflow: hidden;
-			}
-			.left {
-				width: 75%;
-				background-color: #f0f0f0; /* Optional: background color for visibility */
-			}
-			.right {
-				width: 25%;
-				height: 100vh;
-				overflow-y: auto; /* Enable vertical scrolling */
-				background-color: #ffffff; /* Optional: background color for visibility */
-			}
-		</style>
+		<link rel="stylesheet" href="./style/global.css" />
+		<link rel="stylesheet" href="./style/monthlyView.css" />
+		<link rel="stylesheet" href="./style/enroll.css" />
+		<style></style>
 	</head>
-	<body>
+	<body id="home">
 		<div class="left">
 			<header>
 				<h1>내역</h1>
@@ -38,8 +21,16 @@
 
 			<main>
 				<section class="filter-section">
-					<label for="monthPicker">Select Month:</label>
-					<input type="month" value="" id="monthPicker" />
+					<form id="filter-form">
+						<label for="monthPicker">Select Month:</label>
+						<input type="month" id="monthPicker" />
+
+						<select id="options" name="options" style="display: flex">
+							<option value="A">전체</option>
+							<option value="I">수입</option>
+							<option value="E">지출</option>
+						</select>
+					</form>
 				</section>
 
 				<section class="table-section">

@@ -1,7 +1,7 @@
 
 export function createReport(reportData) {
     const monthDiv = document.getElementById('results-month');
-    monthDiv.textContent = reportData.date;
+    monthDiv.textContent = reportData.date + ' 소비 보고서';
 
     // container 생성
     const resultContainer = document.getElementById('results-container');
@@ -14,12 +14,13 @@ export function createReport(reportData) {
 
     // category 데이터
     const category = document.createElement("h3");
-    category.textContent = "카테고리별 비용";
+    category.textContent = "카테고리별 소비";
     newResultContainer.appendChild(category);
 
     // category items 데이터
-    if (reportData.items.Length) {
+    if (reportData.items.length > 0) {
         reportData.items.forEach((item) => {
+
             newResultContainer.appendChild(createLiUI(item.category, item.total_expense));
         });
     } else {

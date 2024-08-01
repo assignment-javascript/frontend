@@ -1,6 +1,8 @@
+export const DOMAIN_URL = 'http://localhost:8080';
+
 export async function fetchData(url, options = {}) {
     try {
-        const response = await fetch(url, options);
+        const response = await fetch(DOMAIN_URL + url, options);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -17,7 +19,7 @@ export async function insertData(item) {
         console.log("Inserting data:", item);
 
         // Fetch 요청을 사용하여 데이터를 서버에 전송합니다.
-        const response = await fetch('http://localhost:8080/income', {
+        const response = await fetch(DOMAIN_URL + '/income', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
