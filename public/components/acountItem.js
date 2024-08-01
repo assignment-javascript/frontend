@@ -39,6 +39,6 @@ function createElement(tagName, key, item, ...classNames) {
     if (key) {
         element.textContent = item[key]; // key를 사용하여 객체의 속성에 접근
     }
-    classNames.forEach(className => element.classList.add(className)); // 클래스 추가
+    element.classList.add(...classNames); // 한 번에 여러 클래스 추가
     return element;
 }
