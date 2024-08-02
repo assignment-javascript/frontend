@@ -1,5 +1,4 @@
-export function createList(itemsData) {
-    const tbody = document.getElementById('results-tbody');
+export function createList(parent, itemsData) {
 
     itemsData.forEach(item => {
         const row = document.createElement('tr');
@@ -23,7 +22,7 @@ export function createList(itemsData) {
         row.appendChild(createElement('td', 'content', item));
         row.appendChild(createElement('td', 'money', item, 'money'));
 
-        tbody.appendChild(row);
+        parent.appendChild(row);
     });
 }
 

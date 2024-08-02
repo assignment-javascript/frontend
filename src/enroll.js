@@ -1,6 +1,4 @@
-import { incomeFetch } from "./fetch/incomeFetch.js";\
-import { monthlyViewRequest } from "./fetch/monthlyViewFetch.js";
-import { createList } from "./components/acountItem.js";
+import { incomeFetch } from "./fetch/incomeFetch.js";
 
 async function handleSubmit() {
     console.log("handleSubmit called");
