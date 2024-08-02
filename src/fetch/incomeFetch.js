@@ -1,6 +1,6 @@
 import { DOMAIN_URL, fetchData } from "./fetch.js"
 
-export async function insertData(item) {
+export async function incomeFetch(item) {
     try {
         console.log("Inserting data:", item);
         const url = DOMAIN_URL + '/income';
@@ -13,7 +13,8 @@ export async function insertData(item) {
         });
 
         alert("등록에 성공하였습니다");
-        return await response.json(); // 응답 데이터를 반환합니다.
+        console.log(response);
+        return response; // 응답 데이터를 반환합니다.
     } catch (error) {
         // 네트워크 오류 등의 예외 상황을 처리합니다.
         console.error('Failed to fetch data:', error);
