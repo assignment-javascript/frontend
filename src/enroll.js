@@ -1,4 +1,4 @@
-import { insertData } from "./fetch/fetch.js";
+import { insertData } from "./fetch/incomeFetch.js";
 import { monthlyViewRequest } from "./fetch/monthlyViewFetch.js";
 import { createList } from "./components/acountItem.js";
 

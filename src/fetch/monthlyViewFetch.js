@@ -1,9 +1,15 @@
-import { fetchData } from "./fetch.js"
+import { DOMAIN_URL, objectToQueryParams, fetchData } from "./fetch.js"
 
-export async function monthlyViewRequest(date) {
-    console.log("date",date);
-    const resultObject = await fetchData(`http://localhost:8080/?date=${date}`, {});
+export async function monthlyViewRequest(date, ie) {
+    const params = {
+        date
+    }
+    if (ie != 'A') {
+        params.ie = ie;
+    }
+
+    const url = DOMAIN_URL + '?' + objectToQueryParams(params)
+    const resultObject = await fetchData(url, {});
 
     return resultObject.data;
-
 }
