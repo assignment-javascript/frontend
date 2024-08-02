@@ -1,4 +1,11 @@
 import { incomeFetch } from "./fetch/incomeFetch.js";
+function formatDateToYearMonth(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    // 월을 두 자리로 만들기 위해 padStart를 사용
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    return `${year}-${month}`;
+}
 
 async function handleSubmit() {
     console.log("handleSubmit called");
@@ -11,8 +18,13 @@ async function handleSubmit() {
     const memo = document.getElementById('memo').value;
     const ie = document.getElementById('ie').value;
 
+    // 입력된 날짜를 한국 시간으로 변환
     const date = new Date(dateInput);
-    const formattedDate = date.toISOString().slice(0, 19).replace('T', ' ');
+    const utcDate = date.getTime() + (date.getTimezoneOffset() * 6000);
+    const kstDate = new Date(utcDate + (3600000 * 9)); // UTC+9 시간대
+
+    const formattedDate = kstDate.toISOString().slice(0, 19).replace('T', ' ');
+
     const newItem = {
         date: formattedDate,
         bank: bank,
@@ -26,10 +38,8 @@ async function handleSubmit() {
     try {
         await incomeFetch(newItem);
         // `newItem.date`에서 `YYYY-MM` 형식으로 변환
-        const itemDate = new Date(newItem.date);
-        const yearMonth = itemDate.toISOString().slice(0, 7); // 'YYYY-MM' 형식으로 변환
-
-        // monthPicker의 값을 업데이트
+        const yearMonth = formatDateToYearMonth(newItem.date);
+         // monthPicker의 값을 업데이트
         const monthPicker = document.getElementById("monthPicker");
         monthPicker.value = yearMonth;
 
