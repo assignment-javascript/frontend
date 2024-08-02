@@ -4,27 +4,19 @@ const app = express();
 const port = 3000;
 
 // 정적 파일 제공을 위해 'public' 디렉토리를 설정
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // 루트 경로에서 index.html을 제공
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
-// /report 경로에서 report.html을 제공
-app.get('/view', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'monthlyView.html'));
-});
 
 // /report 경로에서 report.html을 제공
 app.get('/report', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'report.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'report.html'));
 });
 
-// /enroll 경로에서 enroll.html을 제공
-app.get('/enroll', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'enroll.html'));
-});
 
 // 서버 시작
 app.listen(port, () => {
