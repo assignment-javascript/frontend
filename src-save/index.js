@@ -1,5 +1,0 @@
-import "./monthlyView.js"
-import "./enroll.js"
-import "./fetch/fetch.js"
-import "./fetch/monthlyViewFetch.js"
-import "./components/acountItem.js"
