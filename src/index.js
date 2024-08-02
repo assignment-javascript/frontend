@@ -1,2 +1,2 @@
-import "./monthlyView.js"
-import "./enroll.js"
+import "./logic/monthlyView.js"
+import "./logic/enroll.js"

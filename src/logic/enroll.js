@@ -1,4 +1,4 @@
-import { incomeFetch } from "./fetch/incomeFetch.js";
+import { incomeFetch } from "../fetch/incomeFetch.js";
 function formatDateToYearMonth(dateString) {
     const date = new Date(dateString);
     const year = date.getFullYear();
@@ -39,7 +39,7 @@ async function handleSubmit() {
         await incomeFetch(newItem);
         // `newItem.date`에서 `YYYY-MM` 형식으로 변환
         const yearMonth = formatDateToYearMonth(newItem.date);
-         // monthPicker의 값을 업데이트
+        // monthPicker의 값을 업데이트
         const monthPicker = document.getElementById("monthPicker");
         monthPicker.value = yearMonth;
 

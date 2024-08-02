@@ -1,4 +1,4 @@
-export const DOMAIN_URL = 'http://localhost:8080';
+export const DOMAIN_URL = "http://172.29.12.159:8080";
 
 // fetch, tryCatch로 싸줘야함
 export async function fetchData(url, options = {}) {

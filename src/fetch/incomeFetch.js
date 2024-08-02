@@ -3,7 +3,7 @@ import { DOMAIN_URL, fetchData } from "./fetch.js"
 export async function incomeFetch(item) {
     try {
         console.log("Inserting data:", item);
-        const url = DOMAIN_URL + '/income';
+        const url = DOMAIN_URL;
         const response = await fetchData(url, {
             method: 'POST',
             headers: {

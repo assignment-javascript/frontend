@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // 플러그인 가져오기
 
 module.exports = {
@@ -15,27 +14,6 @@ module.exports = {
     clean: true,
   },
 
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|pages)/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-      {
-        test: /\.css$/,
-        use: [
-          { loader: MiniCssExtractPlugin.loader },
-          {
-            loader: 'css-loader',
-            options: { import: true },
-          },
-        ],
-      },
-    ],
-  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
@@ -46,10 +24,6 @@ module.exports = {
       template: './src/report.html',
       filename: 'report.html',
       chunks: ['report'],
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css'
     }),
     new CopyWebpackPlugin({
       patterns: [
