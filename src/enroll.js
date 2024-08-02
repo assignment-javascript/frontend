@@ -1,4 +1,4 @@
-import { insertData } from "./fetch/incomeFetch.js";
+import { incomeFetch } from "./fetch/incomeFetch.js";\
 import { monthlyViewRequest } from "./fetch/monthlyViewFetch.js";
 import { createList } from "./components/acountItem.js";
 
@@ -26,7 +26,7 @@ async function handleSubmit() {
     };
 
     try {
-        await insertData(newItem);
+        await incomeFetch(newItem);
         // `newItem.date`에서 `YYYY-MM` 형식으로 변환
         const itemDate = new Date(newItem.date);
         const yearMonth = itemDate.toISOString().slice(0, 7); // 'YYYY-MM' 형식으로 변환

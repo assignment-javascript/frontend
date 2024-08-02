@@ -4,17 +4,17 @@ const app = express();
 const port = 3000;
 
 // 정적 파일 제공을 위해 'public' 디렉토리를 설정
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'src')));
 
 // 루트 경로에서 index.html을 제공
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'src', 'index.html'));
 });
 
 
 // /report 경로에서 report.html을 제공
 app.get('/report', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'report.html'));
+  res.sendFile(path.join(__dirname, 'src', 'report.html'));
 });
 
 
