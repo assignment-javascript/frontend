@@ -13,7 +13,6 @@ export async function incomeFetch(item) {
         });
 
         alert("등록에 성공하였습니다");
-        console.log(response);
         return response; // 응답 데이터를 반환합니다.
     } catch (error) {
         // 네트워크 오류 등의 예외 상황을 처리합니다.
