@@ -1,24 +1,27 @@
-import { monthlyViewRequest } from "./fetch/monthlyViewFetch.js"
-import { createList } from "./components/acountItem.js"
+import { monthlyViewRequest } from "./fetch/monthlyViewFetch.js";
+import { createList } from "./components/acountItem.js";
 
-document.getElementById('monthPicker').addEventListener('change', onChangeMonth);
-
-const form = document.getElementById('filter-form');
-
-form.addEventListener('change', (event) => {
-    const monthElement = document.getElementById('monthPicker');
-    const selectElement = document.getElementById('options');
-
-    onChangeMonth(monthElement.value, selectElement.value);
-});
-
-
-async function onChangeMonth(date, ie) {
-    const oldTbody = document.getElementById('results-tbody');
-    const newTbody = oldTbody.cloneNode(false);
-    oldTbody.replaceWith(newTbody);
-
-    const response = await monthlyViewRequest(date, ie);
-    createList(response);
+// Ref Container
+function setRef(monthPicker, options) {
+    return {
+        monthPicker, options
+    };
 }
 
+// 폼 변경 인지
+const form = document.getElementById('filter-form');
+const formRefs = setRef(document.getElementById('monthPicker'), document.getElementById('options'));
+
+form.addEventListener('change', () => {
+    onChangeMonth(formRefs.monthPicker.value, formRefs.options.value);
+});
+
+// 변경이벤트 후 Ref교체
+async function onChangeMonth(date, ie) {
+    const response = await monthlyViewRequest(date, ie);
+    const oldTbody = document.getElementById('results-tbody');
+    const newTbody = oldTbody.cloneNode(false);
+    createList(newTbody, response);
+
+    oldTbody.replaceWith(newTbody);
+}
